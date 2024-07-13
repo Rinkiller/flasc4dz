@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Страница обработчик
+{% endblock %}
+{% block content%}
+    <div class="main">
+        <center><p class="h3 list_load_file">Список загружаемых URL адресов изображений</p></center>
+        <ul class="list-group">
+            {% for url in urls %}
+                <li class="list-group-item list_url">{{url}}</li>
+            {% endfor %}    
+        </ul>
+        <center>
+            <a href="{{url_for('synchron_metod')}}"><button class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm justify-content-center" role="status" aria-hidden="true"></span>
+                Загрузка вышеперечисленных файлов синхронным методом
+            </button></a>
+            <a href="#"><button class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm justify-content-center" role="status" aria-hidden="true"></span>
+                Загрузка вышеперечисленных файлов через несколько потоков
+            </button></a>
+            <a href="/processing"><button class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm justify-content-center" role="status" aria-hidden="true"></span>
+                Загрузка вышеперечисленных файлов через несколько мультипроцессов
+            </button></a>
+            <a href="/async"><button class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm justify-content-center" role="status" aria-hidden="true"></span>
+                Загрузка вышеперечисленных файлов асинхронным методом
+            </button></a>
+            <a href="/oner"><button class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm justify-content-center" role="status" aria-hidden="true"></span>
+                Загрузка  файлов другими способами
+            </button></a>
+        </center>
+    </div>
+{% endblock %}

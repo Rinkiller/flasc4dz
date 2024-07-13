@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Страница результатов скачивания файлов
+{% endblock %}
+{% block content%}
+    <div class="main">
+        <center><p class="h3 list_load_files">Список загруженных изображений и время загрузки {{metod}} методом</p></center>
+        <table class="table">
+            <thead>
+              <tr class="table">
+                <th scope="col">№</th>
+                <th scope="col">Имя файла</th>
+                <th scope="col">Время загрузки (сек)</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for index, name_time in dict_result.items() %}
+                        <tr class="table">
+                            <th scope="row">{{index}}</th>
+                            <td>{{name_time[0]}}</td>
+                            <td>{{name_time[1]}}</td>
+                            
+                        </tr>
+                {% endfor %}     
+            </tbody>
+          </table>
+          <a href="/">Вернуться на главную страницу</a>
+    </div>
+{% endblock %}
